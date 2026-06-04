@@ -1,0 +1,11 @@
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\common\BusinessRuleException.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\common\ExceptionResponse.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\ComunicacionesApplication.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\config\RabbitMQConfig.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\controller\MensajeRestController.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\entities\Mensaje.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\exception\ApiExceptionHandler.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\messaging\AnotacionEvent.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\messaging\AnotacionEventListener.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\repository\MensajeRepository.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\comunicaciones\src\main\java\com\colegio\comunicaciones\service\MensajeService.java

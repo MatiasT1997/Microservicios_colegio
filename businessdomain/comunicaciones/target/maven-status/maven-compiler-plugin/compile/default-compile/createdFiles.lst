@@ -1,0 +1,13 @@
+com\colegio\comunicaciones\config\RabbitMQConfig.class
+com\colegio\comunicaciones\entities\Mensaje$Canal.class
+com\colegio\comunicaciones\controller\MensajeRestController.class
+com\colegio\comunicaciones\messaging\AnotacionEventListener.class
+com\colegio\comunicaciones\entities\Mensaje.class
+com\colegio\comunicaciones\ComunicacionesApplication.class
+com\colegio\comunicaciones\service\MensajeService.class
+com\colegio\comunicaciones\common\BusinessRuleException.class
+com\colegio\comunicaciones\entities\Mensaje$Estado.class
+com\colegio\comunicaciones\repository\MensajeRepository.class
+com\colegio\comunicaciones\common\ExceptionResponse.class
+com\colegio\comunicaciones\exception\ApiExceptionHandler.class
+com\colegio\comunicaciones\messaging\AnotacionEvent.class

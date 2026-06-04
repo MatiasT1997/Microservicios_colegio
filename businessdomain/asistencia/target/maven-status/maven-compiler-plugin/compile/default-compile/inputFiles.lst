@@ -1,0 +1,16 @@
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\AsistenciaApplication.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\common\BusinessRuleException.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\common\ExceptionResponse.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\config\RabbitMQConfig.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\controller\AnotacionRestController.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\controller\AsistenciaRestController.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\controller\ConsultaComunicacionesController.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\entities\Anotacion.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\entities\RegistroAsistencia.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\exception\ApiExceptionHandler.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\messaging\AnotacionEvent.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\messaging\AnotacionEventPublisher.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\repository\AnotacionRepository.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\repository\RegistroAsistenciaRepository.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\service\AnotacionService.java
+C:\Users\Gamer\Downloads\colegio_microservicios_v3\colegio_v2\businessdomain\asistencia\src\main\java\com\colegio\asistencia\service\ComunicacionesClient.java
