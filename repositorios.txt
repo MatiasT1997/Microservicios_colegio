@@ -1,0 +1,30 @@
+Repositorios GitHub - Libro de Clases Digital
+DSY1106 Desarrollo Fullstack III
+
+Repositorio Principal
+URL: [completar con el enlace al repositorio principal]
+Descripcion: Contiene la documentacion general del proyecto, el diagrama de arquitectura, el informe de pruebas unitarias y las guias de instalacion y ejecucion.
+
+Repositorio Frontend
+URL: [completar con el enlace al repositorio del frontend]
+Descripcion: Codigo fuente y dependencias del componente frontend en React (SPA con 5 secciones y autenticacion JWT).
+
+Repositorio apigateway
+URL: [completar con el enlace al repositorio de apigateway]
+Descripcion: API Gateway / BFF construido con Spring Cloud Gateway sobre WebFlux. Centraliza la autenticacion JWT y el enrutamiento hacia los microservicios de dominio.
+
+Repositorio eurekaServer
+URL: [completar con el enlace al repositorio de eurekaServer]
+Descripcion: Servidor de Service Discovery basado en Netflix Eureka, utilizado para el registro y descubrimiento dinamico de los microservicios.
+
+Repositorio gestionacademica
+URL: [completar con el enlace al repositorio de gestionacademica]
+Descripcion: Microservicio de gestion academica. Administra cursos, asignaturas, evaluaciones y notas, con persistencia en PostgreSQL mediante JPA.
+
+Repositorio asistencia
+URL: [completar con el enlace al repositorio de asistencia]
+Descripcion: Microservicio de asistencia y conducta. Administra el registro diario de asistencia y las anotaciones de conducta, publicando eventos a RabbitMQ ante anotaciones negativas o graves.
+
+Repositorio comunicaciones
+URL: [completar con el enlace al repositorio de comunicaciones]
+Descripcion: Microservicio de comunicaciones. Consume eventos de RabbitMQ y genera notificaciones automaticas hacia los apoderados.

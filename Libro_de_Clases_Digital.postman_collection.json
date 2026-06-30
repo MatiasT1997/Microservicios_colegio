@@ -1,0 +1,396 @@
+{
+  "info": {
+    "name": "Libro de Clases Digital - Colegio Bernardo O'Higgins",
+    "description": "Coleccion Postman del proyecto DSY1106. Todas las peticiones pasan por el API Gateway en el puerto 8080. Ejecutar primero Auth > Login para obtener el token JWT y guardarlo en la variable de coleccion 'token'.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "gateway", "value": "http://localhost:8080" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var data = pm.response.json();",
+                  "if (data.token) { pm.collectionVariables.set('token', data.token); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": "{{gateway}}/auth/login"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiJ9...\"\n}"
+            },
+            {
+              "name": "401 Unauthorized",
+              "body": "{\n  \"error\": \"Credenciales invalidas\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gestion Academica - Curso",
+      "item": [
+        {
+          "name": "Listar cursos",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/curso"
+          }
+        },
+        {
+          "name": "Obtener curso por id",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/curso/1"
+          }
+        },
+        {
+          "name": "Crear curso",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"1ro Medio A\",\n  \"nivel\": \"Ensenanza Media\",\n  \"anioLectivo\": 2026\n}"
+            },
+            "url": "{{gateway}}/api/academica/curso"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "body": "{\n  \"id\": 1,\n  \"nombre\": \"1ro Medio A\",\n  \"nivel\": \"Ensenanza Media\",\n  \"anioLectivo\": 2026,\n  \"asignaturas\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Actualizar curso",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"1ro Medio B\",\n  \"nivel\": \"Ensenanza Media\",\n  \"anioLectivo\": 2026\n}"
+            },
+            "url": "{{gateway}}/api/academica/curso/1"
+          }
+        },
+        {
+          "name": "Eliminar curso",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/curso/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gestion Academica - Asignatura",
+      "item": [
+        {
+          "name": "Listar asignaturas",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/asignatura"
+          }
+        },
+        {
+          "name": "Obtener asignatura por id",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/asignatura/1"
+          }
+        },
+        {
+          "name": "Listar asignaturas por curso",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/asignatura/curso/1"
+          }
+        },
+        {
+          "name": "Crear asignatura",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Ciencias\",\n  \"docente\": \"Prof. Anais\",\n  \"curso\": { \"id\": 1 }\n}"
+            },
+            "url": "{{gateway}}/api/academica/asignatura"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "body": "{\n  \"id\": 1,\n  \"nombre\": \"Ciencias\",\n  \"docente\": \"Prof. Anais\",\n  \"curso\": { \"id\": 1, \"nombre\": \"1ro Medio A\" }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Actualizar asignatura",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Matematicas\",\n  \"docente\": \"Prof. Jose\",\n  \"curso\": { \"id\": 1 }\n}"
+            },
+            "url": "{{gateway}}/api/academica/asignatura/1"
+          }
+        },
+        {
+          "name": "Eliminar asignatura",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/asignatura/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gestion Academica - Evaluacion",
+      "item": [
+        {
+          "name": "Listar evaluaciones",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/evaluacion"
+          }
+        },
+        {
+          "name": "Listar evaluaciones por asignatura",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/evaluacion/asignatura/1"
+          }
+        },
+        {
+          "name": "Crear evaluacion",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo\": \"PRUEBA\",\n  \"titulo\": \"Prueba unidad 1\",\n  \"ponderacion\": 30,\n  \"fecha\": \"2026-07-15\"\n}"
+            },
+            "url": "{{gateway}}/api/academica/evaluacion/asignatura/1"
+          }
+        },
+        {
+          "name": "Eliminar evaluacion",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/evaluacion/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gestion Academica - Nota",
+      "item": [
+        {
+          "name": "Listar notas",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/nota"
+          }
+        },
+        {
+          "name": "Listar notas por estudiante",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/academica/nota/estudiante/1"
+          }
+        },
+        {
+          "name": "Registrar nota",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estudianteId\": 1,\n  \"valor\": 6.5\n}"
+            },
+            "url": "{{gateway}}/api/academica/nota/1"
+          },
+          "response": [
+            {
+              "name": "400 Bad Request - fuera de rango",
+              "body": "{\n  \"mensaje\": \"La nota debe estar entre 1.0 y 7.0\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asistencia - Registro",
+      "item": [
+        {
+          "name": "Listar registros de asistencia",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/asistencia/asistencia"
+          }
+        },
+        {
+          "name": "Listar asistencia por curso",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/asistencia/asistencia/curso/1"
+          }
+        },
+        {
+          "name": "Listar asistencia por estudiante",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/asistencia/asistencia/estudiante/1"
+          }
+        },
+        {
+          "name": "Registrar asistencia",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estudianteId\": 1,\n  \"cursoId\": 1,\n  \"fecha\": \"2026-06-28\",\n  \"estado\": \"PRESENTE\"\n}"
+            },
+            "url": "{{gateway}}/api/asistencia/asistencia"
+          }
+        },
+        {
+          "name": "Eliminar registro de asistencia",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/asistencia/asistencia/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Asistencia - Anotacion",
+      "item": [
+        {
+          "name": "Listar anotaciones",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/asistencia/anotacion"
+          }
+        },
+        {
+          "name": "Listar anotaciones por estudiante",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/asistencia/anotacion/estudiante/1"
+          }
+        },
+        {
+          "name": "Crear anotacion (GRAVE dispara evento RabbitMQ)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estudianteId\": 1,\n  \"apoderadoId\": 1,\n  \"descripcion\": \"Conducta inapropiada en clases\",\n  \"tipo\": \"GRAVE\",\n  \"fecha\": \"2026-06-28\"\n}"
+            },
+            "url": "{{gateway}}/api/asistencia/anotacion"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "body": "{\n  \"id\": 1,\n  \"estudianteId\": 1,\n  \"apoderadoId\": 1,\n  \"descripcion\": \"Conducta inapropiada en clases\",\n  \"tipo\": \"GRAVE\",\n  \"fecha\": \"2026-06-28\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Comunicaciones - Mensaje",
+      "item": [
+        {
+          "name": "Listar mensajes/notificaciones",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/comunicaciones/mensaje"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "body": "[\n  {\n    \"id\": 1,\n    \"estudianteId\": 1,\n    \"apoderadoId\": 1,\n    \"descripcion\": \"Conducta inapropiada en clases\",\n    \"tipo\": \"GRAVE\",\n    \"fechaAnotacion\": \"2026-06-28\",\n    \"canal\": \"SISTEMA\",\n    \"estado\": \"ENVIADO\",\n    \"fechaEnvio\": \"2026-06-28T18:25:17.38632\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Listar mensajes por estudiante",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{gateway}}/api/comunicaciones/mensaje/estudiante/1"
+          }
+        }
+      ]
+    }
+  ]
+}

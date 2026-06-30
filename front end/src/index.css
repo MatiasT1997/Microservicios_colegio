@@ -1,0 +1,12 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #f4f1ea;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #a4843f !important;
+  box-shadow: 0 0 0 3px rgba(164,132,63,0.18);
+}
+button:active { transform: scale(0.99); }
+html { scroll-behavior: smooth; }
